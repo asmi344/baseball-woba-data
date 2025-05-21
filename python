@@ -1,0 +1,10 @@
+import requests
+
+url = "https://baseballsavant.mlb.com/statcast_search/csv?all=true&type=team-leaderboard&stats=offense&season=2025&position=&team=&sort=woba_desc"
+filename = "team_woba.csv"
+
+response = requests.get(url)
+with open(filename, "wb") as f:
+    f.write(response.content)
+
+print("Downloaded latest team wOBA CSV")
